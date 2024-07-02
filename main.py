@@ -1,9 +1,9 @@
 import googlemaps
 import numpy as np
 from itertools import permutations
-from decouple import config
+import pandas as pd
 
-api_key = config('GOOGLE_KEY')
+api_key = 'AIzaSyAyIasq3MzDyf_tvVteM9OYTmJzb8dqyMA'
 maps = googlemaps.Client(key=api_key)
 
 origem = [
@@ -64,5 +64,22 @@ def menor_rota(matriz):
 
 distance_matrix = matriz_distancias(origem, origem)
 shortest_path, shortest_distance = menor_rota(distance_matrix)
+fields = ["Origem", "Destino", "Distancia(Km)"]
+rota = pd.DataFrame(columns=fields)
 
+
+total_distance = 0
+for i in range(len(shortest_path)):
+    current_index = shortest_path[i]
+    next_index = shortest_path[(i + 1) % len(shortest_path)]
+    distance = distance_matrix[current_index][next_index] / 1000
+    total_distance += distance
+
+    temp = pd.DataFrame([[origem[current_index], origem[next_index], distance]], columns=fields)
+    rota = pd.concat([rota, temp], ignore_index=True)
+
+
+file_output = pd.ExcelWriter("Files/Rota_Otimizada.xlsx")
+rota.to_excel('Rota_Otimizada.xlsx', sheet_name="Rotas", index=False, engine='openpyxl')
+file_output.save()
 
