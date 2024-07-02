@@ -3,7 +3,7 @@ import numpy as np
 from itertools import permutations
 import pandas as pd
 
-api_key = 'AIzaSyAyIasq3MzDyf_tvVteM9OYTmJzb8dqyMA'
+api_key = ''
 maps = googlemaps.Client(key=api_key)
 
 origem = [
