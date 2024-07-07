@@ -3,7 +3,8 @@ import numpy as np
 from itertools import permutations
 import pandas as pd
 
-api_key = ''
+
+api_key = config('GOOGLE_KEY')
 maps = googlemaps.Client(key=api_key)
 
 origem = [
@@ -78,8 +79,8 @@ for i in range(len(shortest_path)):
     temp = pd.DataFrame([[origem[current_index], origem[next_index], distance]], columns=fields)
     rota = pd.concat([rota, temp], ignore_index=True)
 
+print(rota)
 
-file_output = pd.ExcelWriter("Files/Rota_Otimizada.xlsx")
-rota.to_excel('Rota_Otimizada.xlsx', sheet_name="Rotas", index=False, engine='openpyxl')
-file_output.save()
+
+
 
