@@ -2,6 +2,7 @@ import googlemaps
 import numpy as np
 from itertools import permutations
 import pandas as pd
+from decouple import config
 
 
 api_key = config('GOOGLE_KEY')
