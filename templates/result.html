@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados da Otimização de Rotas</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="form-container">
+                    <h2 class="text-center mb-4">Resultados da Otimização de Rotas</h2>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Origem</th>
+                                <th>Destino</th>
+                                <th>Distância (Km)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for row in tables %}
+                            <tr>
+                                <td>{{ row['Origem'] }}</td>
+                                <td>{{ row['Destino'] }}</td>
+                                <td>{{ row['Distancia (Km)'] }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    <p class="text-center">Distância Total: {{ total_distance }} Km</p>
+                    <div class="text-center">
+                        <a href="{{ link }}" target="_blank" class="btn btn-primary">Ver no Google Maps</a>
+                        <a href="/" class="btn btn-secondary">Nova Rota</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Otimizador de Rotas</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="form-container">
+                    <h2 class="text-center mb-4">Otimizador de Rotas</h2>
+                    <form id="route-form" action="/rota" method="get">
+                        <div class="form-group">
+                            <label for="origem">Origem</label>
+                            <input type="text" class="form-control" id="origem" name="origem" required>
+                        </div>
+                        <div id="destinos-container">
+                            <div class="form-group destino-group">
+                                <label for="destino">Destino</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="destino[]" required>
+                                    <div class="input-group-append">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group destino-group">
+                                <label for="destino">Destino</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="destino[]" required>
+                                    <div class="input-group-append">
+                                        <button type="button" class="btn btn-outline-danger btn-sm d-none" onclick="removeDestination(this)">
+                                            <i class="fas fa-minus"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-outline-primary btn-sm ml-1" onclick="addDestination()">
+                                            <i class="fas fa-plus"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-3">Calcular Rota</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="/static/script.js"></script>
+</body>
+</html>
