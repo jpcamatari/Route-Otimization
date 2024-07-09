@@ -5,7 +5,7 @@ function addDestination() {
     newDestination.innerHTML = `
         <label for="destino">Destino</label>
         <div class="input-group">
-            <input type="text" class="form-control" name="destino[]" required>
+            <input type="text" class="form-control" name="destino" required>
             <div class="input-group-append">
                 <button type="button" class="btn btn-outline-danger btn-sm" onclick="removeDestination(this)">
                     <i class="fas fa-minus"></i>
@@ -34,9 +34,16 @@ function updateButtons() {
     const destinationGroups = container.getElementsByClassName('destino-group');
     for (let i = 0; i < destinationGroups.length; i++) {
         const group = destinationGroups[i];
+        const addButton = group.querySelector('.btn-outline-primary');
         const removeButton = group.querySelector('.btn-outline-danger');
         
-        if (i >= 2) {
+        if (i === destinationGroups.length - 1) {
+            addButton.classList.remove('d-none');
+        } else {
+            addButton.classList.add('d-none');
+        }
+
+        if (destinationGroups.length > 2) {
             removeButton.classList.remove('d-none');
         } else {
             removeButton.classList.add('d-none');
