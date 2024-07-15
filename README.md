@@ -4,6 +4,8 @@ Este projeto é uma aplicação FastAPI que calcula a rota mais curta entre cida
 Ele gera uma matriz de distâncias e encontra o caminho mais curto entre as localizações fornecidas.
 Retornando para o Usuario uma tabela das rotas ordenadas, e a possibilidade de abrir a rota no Google Maps.
 
+Essa aplicação está online no dominio: ***jpcamatari.com.br*** 
+
 ## Índice
 
 1. [Estrutura do Código](#estrutura-do-código)
