@@ -88,7 +88,7 @@ A comunicação entre esses componentes é feita de forma organizada, garantindo
 1. **Clone o repositório:**
 
     ```bash
-     git clone <url_do_repositório>
+     git clone https://github.com/jpcamatari/Route-Otimization.git
      cd Route-Otimization
     ```
 
@@ -107,10 +107,10 @@ A comunicação entre esses componentes é feita de forma organizada, garantindo
 
 4. ***Configure sua chave da API do Google Maps:***
 
-    Crie um arquivo .env na raiz do projeto e adicione sua chave da API:
+    Crie um arquivo .env na raiz do projeto e adicione sua chave da API(Necessario criar uma chave de API Google Maps no GCP:
   
       ```env
-      GOOGLE_KEY=sua_chave_da_api_google_maps
+      GOOGLE_KEY="Sua Chave de API gerada na GCP"
       ```
 
 5. ***Execute a aplicação:***
